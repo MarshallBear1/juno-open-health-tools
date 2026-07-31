@@ -11,7 +11,11 @@ version: 1.0.0
 date-released: 2026-08-01
 license: MIT
 repository-code: "https://github.com/MarshallBear1/juno-open-health-tools"
-url: "https://junocompanion.com"
+url: "https://doi.org/10.5281/zenodo.21729519"
+doi: 10.5281/zenodo.21729519
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21729519
 abstract: "Privacy-conscious, non-diagnostic tools for symptom note-taking and appointment preparation."
 keywords:
   - chronic illness
@@ -19,4 +23,3 @@ keywords:
   - appointment preparation
   - patient-generated health data
   - health communication
-

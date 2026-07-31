@@ -1,5 +1,7 @@
 # Juno Open Health Tools
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21729519.svg)](https://doi.org/10.5281/zenodo.21729519)
+
 Free, privacy-conscious tools for turning messy symptom notes into a clearer appointment conversation.
 
 This repository includes:
@@ -47,6 +49,8 @@ The schema is intentionally small and patient-controlled. It captures observatio
 
 If you use or adapt these resources in research, education, or community support, cite the versioned Zenodo release listed in [`CITATION.cff`](CITATION.cff).
 
+Version 1.0.0 is permanently archived at [doi:10.5281/zenodo.21729519](https://doi.org/10.5281/zenodo.21729519).
+
 ## About Juno
 
 [Juno](https://junocompanion.com/?utm_source=github&utm_medium=referral&utm_campaign=open-health-tools) helps people living with chronic illness capture symptoms, find clearer language for hard-to-describe experiences, and prepare for appointments. This open repository is usable without a Juno account.
@@ -58,4 +62,3 @@ Small, evidence-aware contributions are welcome. Do not submit personal health i
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
-
