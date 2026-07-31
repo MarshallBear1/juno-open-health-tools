@@ -24,7 +24,7 @@ If symptoms may be urgent or life-threatening, contact local emergency services 
 
 ### Notion
 
-Import the CSV files in [`templates/notion`](templates/notion) into a new private Notion page, then follow the included setup guide.
+Duplicate the [free public Juno Appointment Prep template](https://inquisitive-slug-0e4.notion.site/Juno-Appointment-Prep-Free-Template-3ae65ef19af080219b65fc887aa0c280), or import the files in [`templates/notion`](templates/notion) into a new private Notion page.
 
 ### Printable / Canva
 
@@ -32,7 +32,7 @@ Use the PDF in `output/pdf/` as-is, or upload it to Canva to make a personal edi
 
 ### MCP app
 
-The public endpoint is documented in [`app/README.md`](app/README.md). Local development:
+Try the [public Juno Health Tools app](https://juno-health-tools.vercel.app), or read the endpoint documentation in [`app/README.md`](app/README.md). Local development:
 
 ```bash
 cd app
@@ -50,6 +50,10 @@ The schema is intentionally small and patient-controlled. It captures observatio
 If you use or adapt these resources in research, education, or community support, cite the versioned Zenodo release listed in [`CITATION.cff`](CITATION.cff).
 
 Version 1.0.0 is permanently archived at [doi:10.5281/zenodo.21729519](https://doi.org/10.5281/zenodo.21729519).
+
+## Further reading
+
+The Medium guide, [“A better way to prepare for a health appointment when your symptoms are messy”](https://medium.com/@Marsh30/a-better-way-to-prepare-for-a-health-appointment-when-your-symptoms-are-messy-df9e62d83f5a), explains the patient problem these resources are designed to address.
 
 ## About Juno
 
