@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare a Health Appointment"
+  short_description: "Turn messy notes into an appointment brief"
+  default_prompt: "Use $prepare-health-appointment to turn my notes into a concise appointment brief."

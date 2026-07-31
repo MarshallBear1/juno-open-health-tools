@@ -1,0 +1,19 @@
+{
+  "name": "juno-health-tools",
+  "version": "0.1.0",
+  "description": "Privacy-conscious workflows for symptom language, health timelines, flare reflection, and appointment preparation.",
+  "author": {
+    "name": "SharedGenes, Inc."
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Juno Health Tools",
+    "shortDescription": "Prepare clearer, non-diagnostic health notes.",
+    "longDescription": "Juno Health Tools helps people organise symptom descriptions, timelines, flare reflections, and appointment questions without diagnosing or recommending treatment.",
+    "developerName": "Juno",
+    "category": "Health & Fitness",
+    "capabilities": ["skills", "mcp"],
+    "defaultPrompt": "Help me turn these messy health notes into a concise, factual appointment brief."
+  },
+  "mcpServers": "./.mcp.json"
+}

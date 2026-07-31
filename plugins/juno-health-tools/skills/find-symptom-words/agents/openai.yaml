@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Symptom Words"
+  short_description: "Find clearer words for symptoms"
+  default_prompt: "Use $find-symptom-words to help me describe this symptom clearly."

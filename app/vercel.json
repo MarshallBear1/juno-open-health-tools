@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "functions": {
+    "app/api/mcp/route.js": { "maxDuration": 30 }
+  }
+}

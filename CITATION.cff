@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use these tools, please cite the versioned Zenodo release."
+title: "Juno Open Health Tools: Appointment Preparation and Symptom Diary Resources"
+type: software
+authors:
+  - family-names: Gould
+    given-names: Marshall
+  - family-names: Tolley
+    given-names: Isaac
+version: 1.0.0
+date-released: 2026-08-01
+license: MIT
+repository-code: "https://github.com/MarshallBear1/juno-open-health-tools"
+url: "https://junocompanion.com"
+abstract: "Privacy-conscious, non-diagnostic tools for symptom note-taking and appointment preparation."
+keywords:
+  - chronic illness
+  - symptom diary
+  - appointment preparation
+  - patient-generated health data
+  - health communication
+

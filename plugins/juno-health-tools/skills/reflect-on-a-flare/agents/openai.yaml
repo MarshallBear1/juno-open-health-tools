@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reflect on a Flare"
+  short_description: "Structure a non-diagnostic flare reflection"
+  default_prompt: "Use $reflect-on-a-flare to structure what changed around this flare."

@@ -1,0 +1,4 @@
+recorded_at,description,body_area,intensity_0_to_10,duration_minutes,pattern,context,possible_triggers,functional_impact,medication_note,free_text_note,tags
+2026-07-28T09:15:00Z,"Heavy, foggy feeling and difficulty finding words",head,6,90,"Worse after sustained concentration","After a 45-minute video meeting","long meeting;poor sleep","Needed a quiet break before continuing work","No change","Synthetic example only","cognitive;morning"
+2026-07-30T18:40:00Z,"Deep aching in both legs",legs,5,120,"Built gradually through the afternoon","After errands and standing in queues","prolonged standing","Cancelled evening plans","No change","Synthetic example only","pain;activity"
+

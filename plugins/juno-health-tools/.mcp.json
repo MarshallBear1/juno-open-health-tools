@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "juno-health-tools": {
+      "url": "https://juno-health-tools.vercel.app/api/mcp"
+    }
+  }
+}

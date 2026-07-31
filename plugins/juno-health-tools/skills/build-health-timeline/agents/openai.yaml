@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build a Health Timeline"
+  short_description: "Organise observations into a timeline"
+  default_prompt: "Use $build-health-timeline to organise these observations by date and change."
