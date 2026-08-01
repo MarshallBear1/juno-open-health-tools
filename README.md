@@ -28,7 +28,7 @@ Duplicate the [free public Juno Appointment Prep template](https://inquisitive-s
 
 ### Printable / Canva
 
-Use the PDF in `output/pdf/` as-is, or upload it to Canva to make a personal editable copy. The source generator is in `scripts/`.
+Use the PDF in `output/pdf/` as-is, or upload the layered PowerPoint in [`templates/canva`](templates/canva) to Canva for a more editable personal copy. The source generators are in `scripts/`.
 
 ### MCP app
 

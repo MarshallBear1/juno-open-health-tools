@@ -5,3 +5,7 @@ node_modules/
 coverage/
 output/pdf/rendered/
 output/plugin-demo-frames/
+output/canva-template-rendered/
+.tmp-canva-template.*/
+templates/canva/*.pptx.inspect.ndjson
+templates/canva/Juno Appointment Prep - Editable Canva Import/
