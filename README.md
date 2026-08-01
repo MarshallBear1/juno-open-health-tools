@@ -12,6 +12,7 @@ This repository includes:
 - a printable, Canva-importable appointment-preparation pack;
 - a local-first Chrome/Edge appointment-prep extension;
 - a Juno Health Tools MCP app for ChatGPT and Codex;
+- a combined four-skill and five-tool OpenAI plugin package with explicit consent and privacy boundaries;
 - methods and citation guidance for researchers and patient organisations.
 
 ## Safety and privacy
@@ -44,6 +45,8 @@ npm install
 npm test
 npm run dev
 ```
+
+The public plugin source is in [`plugins/juno-health-tools`](plugins/juno-health-tools), with submission and reviewer materials in [`submissions/openai-plugin-2026.md`](submissions/openai-plugin-2026.md).
 
 ## Open symptom diary standard
 

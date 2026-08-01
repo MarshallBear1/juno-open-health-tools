@@ -5,6 +5,10 @@ description: Structure a person's notes about a symptom flare into before, durin
 
 # Reflect on a flare
 
+## Privacy gate
+
+Before sending text to the Juno Health Tools MCP server, disclose that it will be processed transiently without intentional application storage and ask whether the user wants to continue. Invoke the tool only after explicit agreement and set `consentConfirmed` to `true`. Ask only for brief, user-authored, non-identifying observations. Do not request or accept PHI, names, contact details, record or insurance numbers, credentials, provider documents, or text copied from a clinical system.
+
 Use a neutral before–during–after structure:
 
 1. Before: baseline, sleep, activity, stressors, routine changes, and any user-noted exposures.
@@ -14,4 +18,3 @@ Use a neutral before–during–after structure:
 5. List possible patterns as questions to monitor, never conclusions.
 
 Do not recommend changing medication, activity, diet, or treatment. If the description could be urgent, shift to appropriate urgent-help guidance.
-

@@ -12,13 +12,14 @@ export default function Home() {
         <section style={section}><h2>Prepare</h2><p>Prioritise a main goal, recent changes, functional impact, and the questions that matter most.</p></section>
       </div>
       <p style={{ padding: 20, borderLeft: "4px solid #eead70", background: "#fff8f0", lineHeight: 1.6 }}>These tools organise information. They do not diagnose, recommend treatment, replace a clinician, or provide emergency care.</p>
+      <p style={{ padding: 20, borderLeft: "4px solid #16705a", background: "#effaf6", lineHeight: 1.6 }}>Before a tool call, Juno Health Tools asks for permission to process the minimum non-identifying text needed for that request. Do not submit PHI, names, contact details, record numbers, credentials, or provider documents. Tool inputs and outputs are not intentionally stored in an application database.</p>
       <nav style={{ display: "flex", gap: 18, flexWrap: "wrap", marginTop: 32 }}>
         <a href="https://github.com/MarshallBear1/juno-open-health-tools">Open-source resources</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
         <a href="https://junocompanion.com/?utm_source=openai_plugin&utm_medium=referral&utm_campaign=juno_health_tools">About Juno</a>
       </nav>
     </main>
   );
 }
-

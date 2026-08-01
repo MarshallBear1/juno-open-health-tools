@@ -5,6 +5,7 @@ node_modules/
 coverage/
 output/pdf/rendered/
 output/plugin-demo-frames/
+output/plugin/
 output/canva-template-rendered/
 output/extension/
 .tmp-canva-template.*/

@@ -1,19 +1,36 @@
 {
   "name": "juno-health-tools",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Privacy-conscious workflows for symptom language, health timelines, flare reflection, and appointment preparation.",
   "author": {
-    "name": "SharedGenes, Inc."
+    "name": "SharedGenes, Inc.",
+    "email": "team@juno-chat.com",
+    "url": "https://junocompanion.com/"
   },
+  "homepage": "https://juno-health-tools.vercel.app/",
+  "repository": "https://github.com/MarshallBear1/juno-open-health-tools",
+  "license": "MIT",
+  "keywords": ["appointment preparation", "health communication", "symptom notes", "timeline", "accessibility"],
   "skills": "./skills/",
   "interface": {
     "displayName": "Juno Health Tools",
-    "shortDescription": "Prepare clearer, non-diagnostic health notes.",
-    "longDescription": "Juno Health Tools helps people organise symptom descriptions, timelines, flare reflections, and appointment questions without diagnosing or recommending treatment.",
+    "shortDescription": "Prepare clearer health notes",
+    "longDescription": "Juno Health Tools helps people organise non-identifying, user-authored symptom descriptions, timelines, flare reflections, and appointment questions. It processes submitted text transiently after explicit consent, does not intentionally retain tool inputs or outputs, and does not diagnose or recommend treatment.",
     "developerName": "Juno",
-    "category": "Health & Fitness",
-    "capabilities": ["skills", "mcp"],
-    "defaultPrompt": "Help me turn these messy health notes into a concise, factual appointment brief."
+    "category": "Healthcare",
+    "capabilities": ["Read"],
+    "websiteURL": "https://juno-health-tools.vercel.app/",
+    "privacyPolicyURL": "https://juno-health-tools.vercel.app/privacy",
+    "termsOfServiceURL": "https://juno-health-tools.vercel.app/terms",
+    "supportURL": "https://juno-health-tools.vercel.app/support",
+    "defaultPrompt": [
+      "Help me turn messy health notes into a concise appointment brief.",
+      "Help me find neutral words to describe this symptom clearly.",
+      "Organise these dated observations into a factual health timeline."
+    ],
+    "brandColor": "#0D665B",
+    "composerIcon": "./assets/juno-plugin-icon-128.png",
+    "logo": "./assets/juno-plugin-icon-512.png"
   },
   "mcpServers": "./.mcp.json"
 }

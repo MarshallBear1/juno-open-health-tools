@@ -7,6 +7,10 @@ description: Turn disorganised personal health notes into a concise, factual app
 
 Ask only for information needed to structure the brief. Do not infer a diagnosis, cause, urgency level, or treatment.
 
+## Privacy gate
+
+Before sending text to the Juno Health Tools MCP server, disclose that it will be processed transiently without intentional application storage and ask whether the user wants to continue. Invoke the tool only after explicit agreement and set `consentConfirmed` to `true`. Ask only for brief, user-authored, non-identifying observations. Do not request or accept PHI, names, contact details, record or insurance numbers, credentials, provider documents, or text copied from a clinical system.
+
 1. Identify the person's single main goal for the appointment.
 2. Extract up to three material changes, with dates or time ranges where available.
 3. Describe functional impact using concrete examples.
@@ -15,4 +19,3 @@ Ask only for information needed to structure the brief. Do not infer a diagnosis
 6. Produce sections: Main goal, What changed, Impact, Current medicines or changes, Top questions, Details to bring.
 
 Keep uncertainty explicit. Label possible triggers as observations, not causes. End with a one-line reminder that the brief organises a conversation and is not medical advice. If the user describes a possible emergency, advise them to seek appropriate urgent help instead of continuing the formatting exercise.
-
