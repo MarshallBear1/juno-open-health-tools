@@ -12,7 +12,7 @@ Helping people turn messy symptoms into a clearer appointment conversation
 
 ### Editorial story
 
-Juno was built from lived experience of chronic and hard-to-diagnose illness. Founder Marshall Gould lives with ME/CFS, while co-founder Isaac spent fourteen years searching for answers before receiving an eosinophilic bronchitis diagnosis. They built Juno around a problem they knew personally: the difficulty of remembering, prioritising, and explaining a complex health story in a short appointment.
+Juno was built from the founding team's lived experience of chronic and hard-to-diagnose illness. They built it around a problem they knew personally: the difficulty of remembering, prioritising, and explaining a complex health story in a short appointment. Add named personal details to the private nomination only after each person concerned has explicitly approved the wording and audience.
 
 Juno helps people capture symptom observations between visits, find clearer words for experiences that are hard to describe, organise changes into a timeline, and decide what they most want to cover with a clinician. It is deliberately non-diagnostic and designed to support—not replace—the patient-clinician relationship.
 

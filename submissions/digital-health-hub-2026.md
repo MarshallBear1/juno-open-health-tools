@@ -42,7 +42,7 @@ Console metrics are point-in-time observations and should be refreshed immediate
 
 ## Patient-led origin
 
-Juno grew from lived experience of long, confusing health journeys. Founder Marshall Gould lives with ME/CFS, and co-founder Isaac spent fourteen years seeking an explanation before receiving an eosinophilic bronchitis diagnosis. Those experiences shaped a product focused on the overlooked layer between symptoms and care: helping people remember what happened, find language for it, and arrive better prepared to be heard.
+Juno grew from the founding team's lived experience of long, confusing health journeys. Those experiences shaped a product focused on the overlooked layer between symptoms and care: helping people remember what happened, find language for it, and arrive better prepared to be heard. Add personal medical details to the private application only where the person concerned has explicitly approved the wording and audience.
 
 ## Impact model
 
@@ -71,6 +71,7 @@ Juno rethinks care delivery at the point where patient experience becomes clinic
 - Year founded, employee/FTE count, funding stage, capital raised, and annual revenue/ARR if requested.
 - Current iOS audience and App Store rating.
 - One or two referenceable customer quotes with explicit permission.
+- Explicit approval from each founder before including any personal medical details in a public nomination or application.
 - Any completed user research, surveys, or clinical/advisory review that can be described precisely.
 - Whether the product is currently purchasable in the United States and the exact US pricing model.
 
