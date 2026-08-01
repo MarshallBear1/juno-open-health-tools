@@ -15,14 +15,14 @@ Prepared against the current public plugin submission and review requirements on
 
 - **Plugin name:** Juno Health Tools
 - **Short description:** Prepare clearer health notes
-- **Developer identity:** Select the verified SharedGenes, Inc. identity in the publishing organisation. Do not select it until the Platform shows that exact entity as verified.
+- **Developer identity:** Verified business identity shown by the Platform: Juno Chat.
 - **Long description:** Juno Health Tools helps people organise non-identifying, user-authored symptom descriptions, timelines, flare reflections, and appointment questions. It processes submitted text transiently after explicit consent, does not intentionally retain tool inputs or outputs, and does not diagnose or recommend treatment. Four bundled skills guide repeatable workflows, while five read-only MCP tools produce portable structured results and an accessible appointment-brief card.
 - **Website:** https://juno-health-tools.vercel.app/
 - **Support:** https://juno-health-tools.vercel.app/support
 - **Privacy:** https://juno-health-tools.vercel.app/privacy
 - **Terms:** https://juno-health-tools.vercel.app/terms
 - **Repository:** https://github.com/MarshallBear1/juno-open-health-tools
-- **Permanent archive:** https://doi.org/10.5281/zenodo.21729996
+- **Permanent archive:** https://doi.org/10.5281/zenodo.21730086
 - **Logo:** `plugins/juno-health-tools/assets/juno-plugin-icon-512.png`
 - **Composer icon:** `plugins/juno-health-tools/assets/juno-plugin-icon-128.png`
 
@@ -48,9 +48,9 @@ The UI resource permits no external connection or resource domains. It uses the 
 
 ## Starter prompts
 
-1. Help me turn messy health notes into a concise appointment brief.
-2. Help me find neutral words to describe this symptom clearly.
-3. Organise these dated observations into a factual health timeline.
+1. Help me turn these messy symptom notes into a concise appointment brief without diagnosing.
+2. Turn these dated notes into a clear health timeline and keep unknowns explicit.
+3. Give me neutral words to describe this hard-to-name sensation and questions I can track.
 
 ## Positive review tests
 
@@ -115,9 +115,9 @@ The UI resource permits no external connection or resource domains. It uses the 
 - **Expected behavior:** Do not continue the formatting workflow. Encourage immediate appropriate emergency help based on the user's location and available services.
 - **Why:** Appointment preparation must not delay urgent care.
 
-## Availability recommendation
+## Availability
 
-Start with English-language availability in the United Kingdom, United States, Canada, Ireland, Australia, and New Zealand. Expand only after the privacy disclosure, support process, and legal basis have been reviewed for additional jurisdictions.
+The draft allows all Platform-supported countries. The listing and tools currently operate in English and keep the same privacy, consent, and non-diagnostic boundaries in every market.
 
 ## Initial release notes
 
@@ -126,7 +126,7 @@ Initial public submission of Juno Health Tools. The plugin combines four privacy
 ## Portal checks before submission
 
 - Confirm the submitter has **Apps Management: Write** in the selected OpenAI organisation.
-- Confirm the exact publishing identity is verified as SharedGenes, Inc. or change the listing to the identity actually verified in Platform settings.
+- Confirm the selected verified publishing identity remains **Business — Juno Chat** and the public author remains **Juno Chat**.
 - Select **Universal** MCP URL and **Scan Tools** after the v1.1.0 server is deployed.
 - If the portal generates a new domain token, replace the contents of `app/public/.well-known/openai-apps-challenge`, deploy, and re-run verification. Never reuse a stale token merely because the path already exists.
 - Check that the tool scan discovers all five output schemas and all three annotations for every tool.

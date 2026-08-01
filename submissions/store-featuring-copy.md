@@ -16,7 +16,7 @@ Juno was built from the founding team's lived experience of chronic and hard-to-
 
 Juno helps people capture symptom observations between visits, find clearer words for experiences that are hard to describe, organise changes into a timeline, and decide what they most want to cover with a clinician. It is deliberately non-diagnostic and designed to support—not replace—the patient-clinician relationship.
 
-Alongside the app, the team has released a free appointment-preparation pack, local-first browser extension, and open symptom-diary format so patients and community organisations can use the method without creating an account. Version 1.2.0 is permanently archived on Zenodo under DOI 10.5281/zenodo.21729996.
+Alongside the app, the team has released a free appointment-preparation pack, local-first browser extension, and open symptom-diary format so patients and community organisations can use the method without creating an account. Version 1.3.0 is permanently archived on Zenodo under DOI 10.5281/zenodo.21730086.
 
 ### What makes it timely
 
@@ -25,7 +25,7 @@ Use the verified iOS release date and only name features present in that build. 
 ### Links
 
 - Open methods and resources: https://github.com/MarshallBear1/juno-open-health-tools
-- Permanent archive: https://doi.org/10.5281/zenodo.21729996
+- Permanent archive: https://doi.org/10.5281/zenodo.21730086
 - Public template: https://inquisitive-slug-0e4.notion.site/Juno-Appointment-Prep-Free-Template-3ae65ef19af080219b65fc887aa0c280
 
 ## Google Play promotional content
