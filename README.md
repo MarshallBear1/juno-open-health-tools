@@ -62,6 +62,8 @@ If you use or adapt these resources in research, education, or community support
 
 Version 1.3.0 is permanently archived at [doi:10.5281/zenodo.21730086](https://doi.org/10.5281/zenodo.21730086). Earlier releases remain available in the [Zenodo version history](https://doi.org/10.5281/zenodo.21729518).
 
+Machine-readable software metadata is available in [`codemeta.json`](codemeta.json) for research catalogues and automated indexing systems.
+
 ## Further reading
 
 The Medium guide, [“A better way to prepare for a health appointment when your symptoms are messy”](https://medium.com/@Marsh30/a-better-way-to-prepare-for-a-health-appointment-when-your-symptoms-are-messy-df9e62d83f5a), explains the patient problem these resources are designed to address.
