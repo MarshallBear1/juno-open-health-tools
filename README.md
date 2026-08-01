@@ -48,6 +48,10 @@ npm run dev
 
 The public plugin source is in [`plugins/juno-health-tools`](plugins/juno-health-tools), with submission and reviewer materials in [`submissions/openai-plugin-2026.md`](submissions/openai-plugin-2026.md).
 
+### Research and charity collaboration
+
+The three-page [Action for M.E. / PRIME concept note](output/partnership/juno-action-for-me-data-brief-concept-note.pdf) proposes a governance-first, co-authored public data brief about appointment communication for people with ME/CFS. It is a discussion document, not a research protocol or recruitment notice; no participant data has been collected.
+
 ## Open symptom diary standard
 
 The schema is intentionally small and patient-controlled. It captures observations rather than asserting diagnoses or causal relationships. See [`schema/README.md`](schema/README.md).
