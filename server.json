@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.marshallbear1/juno-open-health-tools",
+  "title": "Juno Open Health Tools",
+  "description": "Consent-gated tools that turn user health notes into non-diagnostic appointment-prep materials.",
+  "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/MarshallBear1/juno-open-health-tools",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://juno-health-tools.vercel.app/api/mcp"
+    }
+  ]
+}
