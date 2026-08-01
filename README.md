@@ -10,7 +10,7 @@ This repository includes:
 - synthetic examples (no real patient data);
 - an importable Notion appointment-preparation workspace;
 - a printable, Canva-importable appointment-preparation pack;
-- a Chrome/Edge quick-note extension source link;
+- a local-first Chrome/Edge appointment-prep extension;
 - a Juno Health Tools MCP app for ChatGPT and Codex;
 - methods and citation guidance for researchers and patient organisations.
 
@@ -29,6 +29,10 @@ Duplicate the [free public Juno Appointment Prep template](https://inquisitive-s
 ### Printable / Canva
 
 Use the PDF in `output/pdf/` as-is, or upload the layered PowerPoint in [`templates/canva`](templates/canva) to Canva for a more editable personal copy. The source generators are in `scripts/`.
+
+### Chrome / Edge extension
+
+Use the source in [`extension`](extension), or download the store-ready ZIP from the latest GitHub release. It saves short changes, timeline points, daily-life impacts, and questions in local browser storage, then creates a copyable appointment plan. It makes no remote requests and requires only the browser `storage` permission.
 
 ### MCP app
 

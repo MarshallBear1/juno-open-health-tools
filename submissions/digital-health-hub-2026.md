@@ -37,6 +37,7 @@ Most health trackers optimise for data collection. Juno is designed around the c
 - 11,300 device acquisitions in the previous 28 days, up 257% versus the preceding period, as shown in Play Console on 1 August 2026.
 - 5,470 first opens in the previous 28 days, up 134% versus the preceding period.
 - Version 1.1.0 of the open appointment-preparation resources is permanently archived on Zenodo with DOI 10.5281/zenodo.21729935.
+- A local-first Chrome/Edge appointment-preparation extension lets users create a portable plan without an account or remote health-data processing.
 
 Console metrics are point-in-time observations and should be refreshed immediately before final submission.
 

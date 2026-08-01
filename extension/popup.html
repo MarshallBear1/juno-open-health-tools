@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Juno Appointment Prep</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a
+        class="brand"
+        href="https://junocompanion.com/?utm_source=chrome_extension&utm_medium=referral&utm_campaign=appointment_prep"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Visit Juno Companion"
+      >
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span>Juno</span>
+      </a>
+      <span class="local-badge"><span aria-hidden="true">●</span> Saved locally</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Appointment prep</p>
+        <h1 id="page-title">Walk in with a clearer plan.</h1>
+        <p class="hero-copy">Capture what changed, what it affected, and the questions you do not want to forget.</p>
+      </section>
+
+      <section class="card context-card" aria-labelledby="context-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">01</p>
+            <h2 id="context-title">Set the context</h2>
+          </div>
+          <span id="save-status" class="save-status" role="status" aria-live="polite">Ready</span>
+        </div>
+        <div class="field-grid">
+          <label>
+            <span>Date</span>
+            <input id="appointment-date" type="date" />
+          </label>
+          <label>
+            <span>Clinician or service</span>
+            <input id="clinician" type="text" maxlength="80" placeholder="e.g. neurology" />
+          </label>
+        </div>
+        <label>
+          <span>Main goal</span>
+          <textarea id="goal" rows="2" maxlength="280" placeholder="What would make this appointment useful?"></textarea>
+        </label>
+      </section>
+
+      <section class="card" aria-labelledby="capture-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">02</p>
+            <h2 id="capture-title">Capture the signal</h2>
+          </div>
+          <span id="entry-count" class="count-badge">0 notes</span>
+        </div>
+
+        <div class="category-picker" role="radiogroup" aria-label="Note type">
+          <button class="category active" data-category="change" role="radio" aria-checked="true">Change</button>
+          <button class="category" data-category="timeline" role="radio" aria-checked="false">Timeline</button>
+          <button class="category" data-category="impact" role="radio" aria-checked="false">Impact</button>
+          <button class="category" data-category="question" role="radio" aria-checked="false">Question</button>
+        </div>
+
+        <label class="sr-only" for="quick-note">Appointment note</label>
+        <div class="composer">
+          <textarea id="quick-note" rows="3" maxlength="400" placeholder="What is different from your usual baseline?"></textarea>
+          <div class="composer-footer">
+            <span id="prompt-hint">Describe what changed, when, and how often.</span>
+            <button id="add-note" class="button primary" type="button">Add note</button>
+          </div>
+        </div>
+
+        <div id="notes-empty" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <p><strong>Your useful details will collect here.</strong><br />Keep each note short and observable.</p>
+        </div>
+        <ol id="notes-list" class="notes-list" aria-live="polite"></ol>
+      </section>
+
+      <section class="card plan-card" aria-labelledby="plan-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">03</p>
+            <h2 id="plan-title">Take your plan with you</h2>
+          </div>
+        </div>
+        <p class="plan-copy">Create a plain-language summary you can paste into a note, print, or bring to your appointment.</p>
+        <div class="action-row">
+          <button id="copy-plan" class="button primary" type="button">Copy plan</button>
+          <button id="download-plan" class="button secondary" type="button">Download .txt</button>
+          <button id="clear-plan" class="button ghost" type="button">Clear</button>
+        </div>
+      </section>
+
+      <aside class="safety-note" aria-label="Safety and privacy">
+        <strong>Private by design.</strong> Notes stay in this browser unless you copy or download them. This tool organises information; it does not diagnose, recommend treatment, or provide emergency care.
+      </aside>
+    </main>
+
+    <footer>
+      <a href="https://doi.org/10.5281/zenodo.21729935" target="_blank" rel="noreferrer">Free printable pack</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://github.com/MarshallBear1/juno-open-health-tools" target="_blank" rel="noreferrer">Open-source tools</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://junocompanion.com/?utm_source=chrome_extension&utm_medium=referral&utm_campaign=appointment_prep" target="_blank" rel="noreferrer">About Juno</a>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
