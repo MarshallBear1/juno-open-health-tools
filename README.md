@@ -62,6 +62,8 @@ If you use or adapt these resources in research, education, or community support
 
 Version 1.3.0 is permanently archived at [doi:10.5281/zenodo.21730086](https://doi.org/10.5281/zenodo.21730086). Earlier releases remain available in the [Zenodo version history](https://doi.org/10.5281/zenodo.21729518).
 
+The public source history is independently preserved by Software Heritage as [`swh:1:snp:dff7fdc223846efafa269f3dbf17e7d3fecf78bf`](https://archive.softwareheritage.org/swh:1:snp:dff7fdc223846efafa269f3dbf17e7d3fecf78bf/).
+
 Machine-readable software metadata is available in [`codemeta.json`](codemeta.json) for research catalogues and automated indexing systems.
 
 ## Further reading
