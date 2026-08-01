@@ -36,7 +36,7 @@ Most health trackers optimise for data collection. Juno is designed around the c
 - 4.74 average Google Play rating as of 1 August 2026.
 - 11,300 device acquisitions in the previous 28 days, up 257% versus the preceding period, as shown in Play Console on 1 August 2026.
 - 5,470 first opens in the previous 28 days, up 134% versus the preceding period.
-- Version 1.1.0 of the open appointment-preparation resources is permanently archived on Zenodo with DOI 10.5281/zenodo.21729935.
+- Version 1.2.0 of the open appointment-preparation resources is permanently archived on Zenodo with DOI 10.5281/zenodo.21729996.
 - A local-first Chrome/Edge appointment-preparation extension lets users create a portable plan without an account or remote health-data processing.
 
 Console metrics are point-in-time observations and should be refreshed immediately before final submission.
@@ -62,7 +62,7 @@ Juno rethinks care delivery at the point where patient experience becomes clinic
 - Product: https://junocompanion.com/
 - Google Play: https://play.google.com/store/apps/details?id=com.junochat.app
 - Open resources: https://github.com/MarshallBear1/juno-open-health-tools
-- Permanent archive: https://doi.org/10.5281/zenodo.21729935
+- Permanent archive: https://doi.org/10.5281/zenodo.21729996
 - Notion template: https://inquisitive-slug-0e4.notion.site/Juno-Appointment-Prep-Free-Template-3ae65ef19af080219b65fc887aa0c280
 - Medium guide: https://medium.com/@Marsh30/a-better-way-to-prepare-for-a-health-appointment-when-your-symptoms-are-messy-df9e62d83f5a
 

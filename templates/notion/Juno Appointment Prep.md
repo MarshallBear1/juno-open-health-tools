@@ -81,6 +81,6 @@ Suggested views:
 
 Notion is a general-purpose workspace, not a clinical record system. Decide whether it is appropriate for the sensitivity of information you plan to add, keep the page private by default, review sharing permissions, and avoid unnecessary identifiers.
 
-Free printable/Canva pack: https://doi.org/10.5281/zenodo.21729935
+Free printable/Canva pack and open tools: https://doi.org/10.5281/zenodo.21729996
 
 About Juno: https://junocompanion.com/?utm_source=notion&utm_medium=template&utm_campaign=appointment-prep

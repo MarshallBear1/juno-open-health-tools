@@ -33,4 +33,4 @@ The printable alternative is [`../../output/pdf/juno-appointment-prep-pack.pdf`]
 
 ## Licence and citation
 
-MIT licensed. Version 1.1.0 of the broader Juno Open Health Tools collection is permanently archived at [doi:10.5281/zenodo.21729935](https://doi.org/10.5281/zenodo.21729935).
+MIT licensed. Version 1.2.0 of the broader Juno Open Health Tools collection is permanently archived at [doi:10.5281/zenodo.21729996](https://doi.org/10.5281/zenodo.21729996).
