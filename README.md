@@ -1,6 +1,6 @@
 # Juno Open Health Tools
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21729519.svg)](https://doi.org/10.5281/zenodo.21729519)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21729935.svg)](https://doi.org/10.5281/zenodo.21729935)
 
 Free, privacy-conscious tools for turning messy symptom notes into a clearer appointment conversation.
 
@@ -49,7 +49,7 @@ The schema is intentionally small and patient-controlled. It captures observatio
 
 If you use or adapt these resources in research, education, or community support, cite the versioned Zenodo release listed in [`CITATION.cff`](CITATION.cff).
 
-Version 1.0.0 is permanently archived at [doi:10.5281/zenodo.21729519](https://doi.org/10.5281/zenodo.21729519).
+Version 1.1.0 is permanently archived at [doi:10.5281/zenodo.21729935](https://doi.org/10.5281/zenodo.21729935). Version 1.0.0 remains available at [doi:10.5281/zenodo.21729519](https://doi.org/10.5281/zenodo.21729519).
 
 ## Further reading
 
