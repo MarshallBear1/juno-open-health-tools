@@ -50,6 +50,10 @@ The public plugin source is in [`plugins/juno-health-tools`](plugins/juno-health
 
 The remote server is published as [`io.github.MarshallBear1/juno-open-health-tools`](https://registry.modelcontextprotocol.io/?q=io.github.MarshallBear1%2Fjuno-open-health-tools) in the official MCP Registry.
 
+### Engineering notes
+
+- [Privacy-conscious OpenTelemetry in a React Native health companion](docs/opentelemetry-mobile-observability.md) describes Juno's production JavaScript telemetry architecture, the operational signals it records, and the content-exclusion boundary used before OTLP export.
+
 ## Open symptom diary standard
 
 The schema is intentionally small and patient-controlled. It captures observations rather than asserting diagnoses or causal relationships. See [`schema/README.md`](schema/README.md).
