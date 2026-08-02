@@ -51,7 +51,10 @@ function validateOptions({
   }
   if (
     qualities.length === 0 ||
-    qualities.some((quality) => !Number.isInteger(quality) || quality < 0 || quality > 100)
+    qualities.some(
+      (quality) =>
+        !Number.isInteger(quality) || quality < 0 || quality > 100,
+    )
   ) {
     throw new Error("qualities must contain integers from 0 to 100");
   }
@@ -117,10 +120,11 @@ export async function encodeImageToByteBudget(
         throw new Error(`Skia could not create a ${width}x${height} surface`);
       }
 
-      const paint = Skia.Paint();
+      let paint: ReturnType<typeof Skia.Paint> | undefined;
       let snapshot: ReturnType<typeof surface.makeImageSnapshot> | undefined;
 
       try {
+        paint = Skia.Paint();
         const canvas = surface.getCanvas();
         canvas.clear(Skia.Color(backgroundColor));
         canvas.drawImageRectOptions(
@@ -136,6 +140,9 @@ export async function encodeImageToByteBudget(
 
         for (const quality of qualities) {
           const base64 = snapshot.encodeToBase64(ImageFormat.JPEG, quality);
+          if (!base64) {
+            continue;
+          }
           const byteLength = decodedBase64ByteLength(base64);
 
           if (!smallestAttempt || byteLength < smallestAttempt.byteLength) {
@@ -155,13 +162,15 @@ export async function encodeImageToByteBudget(
         }
       } finally {
         snapshot?.dispose();
-        paint.dispose();
+        paint?.dispose();
         surface.dispose();
       }
     }
 
     const detail = smallestAttempt
-      ? `; smallest attempt was ${smallestAttempt.byteLength} bytes at ${smallestAttempt.width}x${smallestAttempt.height}, quality ${smallestAttempt.quality}`
+      ? `; smallest attempt was ${smallestAttempt.byteLength} bytes at ` +
+        `${smallestAttempt.width}x${smallestAttempt.height}, quality ` +
+        `${smallestAttempt.quality}`
       : "";
     throw new Error(`No candidate fit the ${options.maxBytes}-byte budget${detail}`);
   } finally {
