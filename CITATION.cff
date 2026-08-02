@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Gould
     given-names: Marshall
+    orcid: "https://orcid.org/0009-0006-8769-1853"
   - family-names: Tolley
     given-names: Isaac
 version: 1.3.0

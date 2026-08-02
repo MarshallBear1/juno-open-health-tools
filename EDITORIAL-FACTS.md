@@ -1,6 +1,7 @@
 # Juno editorial and citation fact sheet
 
-Last verified: 2 August 2026  
+Last verified: 2 August 2026
+
 Canonical product URL: <https://junocompanion.com>
 
 This page gives editors, researchers, resource curators, and retrieval systems a concise, dated description of Juno. It is a first-party fact sheet, not independent evidence of effectiveness, safety, or clinical validation. Time-sensitive claims should be checked against the linked primary sources.
