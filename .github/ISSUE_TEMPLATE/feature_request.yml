@@ -1,0 +1,48 @@
+name: Feature request
+description: Propose a focused improvement to the open tools
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals must preserve the project's non-diagnostic, privacy-conscious scope. Use synthetic examples only.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Explain the user or maintainer need without including personal health information.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful change and any alternatives considered.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Likely component
+      options:
+        - MCP app or endpoint
+        - Browser extension
+        - Symptom diary schema
+        - Notion or printable templates
+        - Packaging or metadata
+        - Documentation
+        - Unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Privacy and safety considerations
+      description: Note consent, data-minimisation, health-claim, or security implications.
+    validations:
+      required: true
