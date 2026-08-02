@@ -13,6 +13,7 @@ This repository includes:
 - a local-first Chrome/Edge appointment-prep extension;
 - a Juno Health Tools MCP app for ChatGPT and Codex;
 - a combined four-skill and five-tool OpenAI plugin package with explicit consent and privacy boundaries.
+- a production-derived React Native Skia tutorial for compressing images to a strict byte budget.
 
 ## Safety and privacy
 
@@ -52,6 +53,10 @@ The remote server is published as [`io.github.MarshallBear1/juno-open-health-too
 ## Open symptom diary standard
 
 The schema is intentionally small and patient-controlled. It captures observations rather than asserting diagnoses or causal relationships. See [`schema/README.md`](schema/README.md).
+
+## Engineering tutorials
+
+- [Compressing a React Native image to a strict byte budget with Skia](tutorials/react-native-skia-image-byte-budget.md) includes a reusable TypeScript implementation, exact Base64 byte accounting, explicit native-object cleanup, and production caveats.
 
 ## Citation
 
