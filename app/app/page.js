@@ -18,7 +18,7 @@ export default function Home() {
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="/support">Support</a>
-        <a href="https://junocompanion.com/?utm_source=openai_plugin&utm_medium=referral&utm_campaign=juno_health_tools">About Juno</a>
+        <a href="https://junocompanion.com/?utm_source=juno_health_tools&utm_medium=referral&utm_campaign=open_health_tools">About Juno</a>
       </nav>
     </main>
   );

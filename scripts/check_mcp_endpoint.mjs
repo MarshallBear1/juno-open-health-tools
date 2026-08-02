@@ -32,6 +32,12 @@ const listed = await rpc(2, "tools/list");
 const tools = listed.result.tools;
 assert.equal(tools.length, 5);
 for (const tool of tools) {
+  assert.ok(typeof tool.title === "string" && tool.title.trim(), `${tool.name} is missing title`);
+  assert.ok(tool.name.length <= 64, `${tool.name} exceeds the 64-character tool-name limit`);
+  assert.ok(
+    typeof tool.description === "string" && tool.description.trim(),
+    `${tool.name} is missing description`,
+  );
   assert.deepEqual(tool.annotations, {
     readOnlyHint: true,
     destructiveHint: false,
@@ -64,6 +70,7 @@ console.log(JSON.stringify({
   serverVersion: initialized.result.serverInfo.version,
   tools: tools.map((tool) => tool.name),
   consentGate: "verified",
+  titlesAndDescriptions: "verified",
   outputSchemas: "verified",
   annotations: "verified",
 }, null, 2));
