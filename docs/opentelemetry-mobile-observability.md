@@ -31,8 +31,8 @@ The implementation uses the JavaScript component directly. Juno does not provide
 Health applications need a stricter boundary than simply avoiding obvious field names. Juno applies these rules before export:
 
 1. **Application content is not telemetry.** Attribute keys associated with symptoms, prompts, notes, message bodies, responses, tokens, or similar content are rejected by a shared sensitive-key filter.
-2. **Metrics stay bounded.** Counters and histograms use low-cardinality operational attributes. Conversation text and raw user identifiers are not metric dimensions.
-3. **Identifiers are constrained.** A stable application user identifier can be attached to a diagnostic span when required for support, but it is kept separate from health-content attributes and is not used as a metric label.
+2. **Metric content is bounded, but cardinality still needs review.** Counters and histograms receive operational attributes after the same content filter, so conversation and symptom text are not metric dimensions. The current shared cleaner also appends an opaque application account identifier to measurements. That supports incident correlation, but it increases cardinality and is a known limitation rather than a recommended metric pattern.
+3. **Identifiers remain separate from health content.** The exported identifier is an opaque application account ID used for support correlation. Names, email addresses, phone numbers, conversation text, symptom text, and medication text are not attached as telemetry attributes.
 4. **Resource data is operational.** Release, build, platform, runtime, and update metadata are useful for finding regressions without collecting what a person wrote in the app.
 5. **Export can be disabled centrally.** A dedicated QA mode prevents external observability traffic, and the OpenTelemetry pipeline can also be disabled through configuration.
 6. **Diagnostics must not change product behaviour.** Export is best-effort, batched, timeout-bounded, and isolated so an unavailable collector or intake cannot block a user-facing action.
@@ -87,12 +87,13 @@ Every wrapper that starts a span or records a measurement sanitizes attributes f
 
 Using OpenTelemetry gives the mobile team one vocabulary for traces, metrics, and logs across release versions. It also makes privacy review more concrete: reviewers can inspect a single resource schema, attribute filter, exporter configuration, and list of named instruments instead of inferring behaviour from scattered analytics calls.
 
-The useful result is not “more telemetry.” It is a smaller, explicit set of operational signals that can answer reliability questions without copying sensitive product content into an observability backend.
+The useful result is not “more telemetry.” It is a smaller, explicit set of operational signals that can answer reliability questions without copying sensitive product content into an observability backend. Signal cardinality still requires separate review; content sanitisation does not make an identifier appropriate as a metric dimension.
 
 ## Limitations
 
 - This note documents architecture and safeguards; it does not claim that telemetry alone proves privacy, security, regulatory compliance, or clinical effectiveness.
 - Client-side controls are one layer. Access controls, retention, incident response, and processor agreements still belong in the wider operational review.
+- The current shared attribute cleaner appends an opaque account identifier to spans and measurements. A future production change should separate trace-correlation attributes from low-cardinality metric attributes before telemetry volume grows; this note does not present the current metric identifier as best practice.
 - Instrument names and attributes evolve. New telemetry must pass the same content-exclusion and cardinality review before release.
 
 Questions about this adoption note can be raised through the [Juno Open Health Tools issue tracker](https://github.com/MarshallBear1/juno-open-health-tools/issues) or sent to `team@juno-chat.com`.
