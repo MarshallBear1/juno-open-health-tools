@@ -84,7 +84,9 @@ The Medium guide, [“A better way to prepare for a health appointment when your
 
 ## Contributing
 
-Small, evidence-aware contributions are welcome. Do not submit personal health information, real patient records, or clinical claims without appropriate evidence and review.
+Small, evidence-aware contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for setup, testing, and review expectations. Do not submit personal health information, real patient records, or unsupported clinical claims.
+
+Report suspected vulnerabilities through the private process in [`SECURITY.md`](SECURITY.md), not through a public issue.
 
 ## License
 
