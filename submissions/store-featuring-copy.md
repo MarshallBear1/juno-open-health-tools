@@ -18,7 +18,7 @@ Juno helps people with chronic illness turn months of conversational symptom his
 
 ### Helpful details — 500 characters maximum
 
-Juno was founded by Marshall Gould and Isaac Tolley after both grew up with chronic conditions. The team conducted 1,000+ patient interviews through Oxford and UCL research. The experience is designed for fluctuating energy and hard-to-describe symptoms, with voice and text input, multilingual support, patient-controlled summaries and explicit non-diagnostic boundaries. Free open resources let patient groups use the preparation method without a Juno account.
+Juno was founded by Marshall Gould and Isaac Tolley after both grew up with chronic conditions. The team conducted 1,000+ patient interviews through Oxford and UCL research. The experience is designed for fluctuating energy and hard-to-describe symptoms, with voice and text input, multilingual support, patient-controlled summaries and explicit non-diagnostic boundaries. Free open resources make the preparation method usable without a Juno account.
 
 ### Portal fields
 
@@ -46,7 +46,7 @@ Juno was built from the founding team's lived experience of chronic and hard-to-
 
 Juno helps people capture symptom observations between visits, find clearer words for experiences that are hard to describe, organise changes into a timeline, and decide what they most want to cover with a clinician. It is deliberately non-diagnostic and designed to support—not replace—the patient-clinician relationship.
 
-Alongside the app, the team has released a free appointment-preparation pack, local-first browser extension, and open symptom-diary format so patients and community organisations can use the method without creating an account. Version 1.3.0 is permanently archived on Zenodo under DOI 10.5281/zenodo.21730086.
+Alongside the app, the team has released a free appointment-preparation pack, local-first browser extension, and open symptom-diary format that anyone can use without creating an account. Version 1.3.0 is permanently archived on Zenodo under DOI 10.5281/zenodo.21730086.
 
 ### What makes it timely
 

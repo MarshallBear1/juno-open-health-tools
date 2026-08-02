@@ -57,7 +57,7 @@ Show only capabilities present in the production build. The finished video must 
 >
 > Our superpower is continuity. A general chatbot starts again with every prompt. Juno is designed around the evolving story of one person's health, while keeping the patient's own observations distinct from interpretation. That makes the output more useful without pretending AI should replace a clinician.
 >
-> Juno now supports more than 150,000 patients globally. Its US App Store listing has 9,900 ratings at 4.8, and the team has released a free, openly archived appointment-preparation method so patient groups can use the approach without a Juno account.
+> Juno now supports more than 150,000 patients globally. Its US App Store listing has 9,900 ratings at 4.8, and the team has released a free, openly archived appointment-preparation method that anyone can use without a Juno account.
 >
 > Juno should win because it applies AI to an overlooked patient-care problem: not simply generating more health information, but helping a person preserve and communicate the context that clinicians need. Our next step is to evaluate preparedness, summary usefulness and visit efficiency under appropriate clinical and lived-experience governance.
 
@@ -81,7 +81,7 @@ Juno provides a low-friction, patient-controlled system for capturing observatio
 
 ## Differentiation
 
-Most health trackers optimise for data collection. Juno is designed around the communication bottleneck: helping a person translate messy lived experience into a short, usable conversation. Its patient-led approach combines conversational support, symptom vocabulary, timelines, and appointment preparation while maintaining explicit non-diagnostic boundaries. Juno has also released an open appointment-preparation pack, symptom-diary schema, synthetic examples, and open-source tools so patients and community organisations can benefit without creating an account.
+Most health trackers optimise for data collection. Juno is designed around the communication bottleneck: helping a person translate messy lived experience into a short, usable conversation. Its patient-led approach combines conversational support, symptom vocabulary, timelines, and appointment preparation while maintaining explicit non-diagnostic boundaries. Juno has also released an open appointment-preparation pack, symptom-diary schema, synthetic examples, and open-source tools that anyone can use without creating an account.
 
 ## Current traction
 
