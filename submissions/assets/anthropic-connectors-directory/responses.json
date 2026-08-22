@@ -1,0 +1,291 @@
+{
+  "endpoint": "https://juno-health-tools.vercel.app/api/mcp",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "Juno Health Tools",
+    "version": "1.1.0"
+  },
+  "captures": [
+    {
+      "asset": "01-find-symptom-words.png",
+      "title": "Find symptom words",
+      "tool": "find_symptom_words",
+      "input": {
+        "consentConfirmed": true,
+        "description": "a heavy feeling behind my eyes",
+        "timing": "after screen time",
+        "impact": "harder to concentrate"
+      },
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Here are neutral word prompts and a starter sentence. This organises information for a conversation; it is not medical advice or a diagnosis."
+          }
+        ],
+        "structuredContent": {
+          "originalDescription": "a heavy feeling behind my eyes",
+          "prompts": {
+            "sensation": [
+              "aching",
+              "burning",
+              "cramping",
+              "electric",
+              "heavy",
+              "numb",
+              "pressure-like",
+              "prickling",
+              "pulsing",
+              "sharp",
+              "sore",
+              "stabbing",
+              "tight",
+              "tingling",
+              "throbbing"
+            ],
+            "timing": [
+              "constant",
+              "intermittent",
+              "episodic",
+              "sudden",
+              "gradual",
+              "delayed after activity",
+              "worse at a particular time",
+              "building through the day"
+            ],
+            "pattern": [
+              "localised",
+              "spreading",
+              "moving",
+              "symmetrical",
+              "one-sided",
+              "triggered by movement",
+              "changed by position",
+              "unpredictable"
+            ],
+            "impact": [
+              "slows walking",
+              "interrupts sleep",
+              "limits concentration",
+              "requires a rest",
+              "changes appetite",
+              "makes speaking harder",
+              "prevents usual tasks",
+              "needs help from another person"
+            ]
+          },
+          "starterSentence": "a heavy feeling behind my eyes, after screen time, and harder to concentrate",
+          "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+        }
+      }
+    },
+    {
+      "asset": "02-build-health-timeline.png",
+      "title": "Build health timeline",
+      "tool": "build_health_timeline",
+      "input": {
+        "consentConfirmed": true,
+        "observations": [
+          {
+            "date": "12 Jul",
+            "observation": "Energy dropped after errands",
+            "impact": "Needed an earlier rest"
+          },
+          {
+            "date": "14 Jul",
+            "observation": "Rested most of the day"
+          },
+          {
+            "date": "18 Jul",
+            "observation": "Energy was closer to baseline"
+          }
+        ]
+      },
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Organised 3 supplied observations. This organises information for a conversation; it is not medical advice or a diagnosis."
+          }
+        ],
+        "structuredContent": {
+          "timeline": [
+            {
+              "date": "12 Jul",
+              "observation": "Energy dropped after errands",
+              "category": "Observation",
+              "impact": "Needed an earlier rest",
+              "uncertainty": ""
+            },
+            {
+              "date": "14 Jul",
+              "observation": "Rested most of the day",
+              "category": "Observation",
+              "impact": "",
+              "uncertainty": ""
+            },
+            {
+              "date": "18 Jul",
+              "observation": "Energy was closer to baseline",
+              "category": "Observation",
+              "impact": "",
+              "uncertainty": ""
+            }
+          ],
+          "changePoints": [],
+          "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+        }
+      }
+    },
+    {
+      "asset": "03-prepare-appointment-brief.png",
+      "title": "Prepare appointment brief",
+      "tool": "prepare_appointment_brief",
+      "input": {
+        "consentConfirmed": true,
+        "mainGoal": "Explain the last month clearly",
+        "changes": [
+          "Fatigue has become less predictable",
+          "Screen time is followed by a heavy feeling behind my eyes"
+        ],
+        "impacts": [
+          "More breaks during routine tasks"
+        ],
+        "medicines": [],
+        "questions": [
+          "What should I track before the next appointment?"
+        ],
+        "detailsToBring": [
+          "A short dated timeline"
+        ]
+      },
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Prepared a concise brief with 3 prioritised questions. This organises information for a conversation; it is not medical advice or a diagnosis."
+          }
+        ],
+        "structuredContent": {
+          "mainGoal": "Explain the last month clearly",
+          "changes": [
+            "Fatigue has become less predictable",
+            "Screen time is followed by a heavy feeling behind my eyes"
+          ],
+          "impacts": [
+            "More breaks during routine tasks"
+          ],
+          "medicines": [],
+          "questions": [
+            "What should I track before the next appointment?",
+            "What are the most useful next steps to clarify or manage this concern?",
+            "What changes should prompt me to contact the care team, and how?"
+          ],
+          "detailsToBring": [
+            "A short dated timeline"
+          ],
+          "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+        }
+      }
+    },
+    {
+      "asset": "04-reflect-on-flare.png",
+      "title": "Reflect on a flare",
+      "tool": "reflect_on_flare",
+      "input": {
+        "consentConfirmed": true,
+        "baselineBefore": [
+          "Busy weekend"
+        ],
+        "during": [
+          "More fatigue",
+          "Light sensitivity"
+        ],
+        "recoveryAfter": [
+          "Gradual improvement over three quiet days"
+        ],
+        "possiblePatterns": [
+          "a busy weekend"
+        ]
+      },
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Structured the flare as before, during, and after observations. This organises information for a conversation; it is not medical advice or a diagnosis."
+          }
+        ],
+        "structuredContent": {
+          "baselineBefore": [
+            "Busy weekend"
+          ],
+          "during": [
+            "More fatigue",
+            "Light sensitivity"
+          ],
+          "recoveryAfter": [
+            "Gradual improvement over three quiet days"
+          ],
+          "possiblePatternsToObserve": [
+            "Could a busy weekend be worth tracking as an observation rather than assuming it was a cause?"
+          ],
+          "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+        }
+      }
+    },
+    {
+      "asset": "05-render-appointment-brief.png",
+      "title": "Render appointment brief",
+      "tool": "render_appointment_brief",
+      "input": {
+        "consentConfirmed": true,
+        "mainGoal": "Explain the last month clearly",
+        "changes": [
+          "Fatigue has become less predictable",
+          "Screen time is followed by a heavy feeling behind my eyes"
+        ],
+        "impacts": [
+          "More breaks during routine tasks"
+        ],
+        "medicines": [],
+        "questions": [
+          "What should I track before the next appointment?",
+          "What are the most useful next steps to clarify or manage this concern?",
+          "What changes should prompt me to contact the care team, and how?"
+        ],
+        "detailsToBring": [
+          "A short dated timeline"
+        ],
+        "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+      },
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Showing the appointment brief. This organises information for a conversation; it is not medical advice or a diagnosis."
+          }
+        ],
+        "structuredContent": {
+          "mainGoal": "Explain the last month clearly",
+          "changes": [
+            "Fatigue has become less predictable",
+            "Screen time is followed by a heavy feeling behind my eyes"
+          ],
+          "impacts": [
+            "More breaks during routine tasks"
+          ],
+          "medicines": [],
+          "questions": [
+            "What should I track before the next appointment?",
+            "What are the most useful next steps to clarify or manage this concern?",
+            "What changes should prompt me to contact the care team, and how?"
+          ],
+          "detailsToBring": [
+            "A short dated timeline"
+          ],
+          "disclaimer": "This organises information for a conversation; it is not medical advice or a diagnosis."
+        }
+      }
+    }
+  ]
+}
