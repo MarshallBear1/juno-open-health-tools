@@ -1,0 +1,56 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://junocompanion.com/#app",
+  "name": "Juno",
+  "alternateName": "Juno: Chronic Illness Support",
+  "description": "An AI-powered health companion providing general wellbeing support and health-tracking tools for people living with chronic and invisible illness. Juno is not a medical device and does not provide medical advice, diagnosis, or treatment.",
+  "url": "https://junocompanion.com/",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": [
+    "iOS",
+    "Android"
+  ],
+  "featureList": [
+    "Supportive voice and text conversation",
+    "Symptom, energy, and pain logging",
+    "Health diary",
+    "Gentle check-ins",
+    "Pattern and trigger review"
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "SharedGenes, Inc.",
+    "url": "https://junocompanion.com/"
+  },
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Marshall Gould"
+    },
+    {
+      "@type": "Person",
+      "name": "Isaac Tolley"
+    }
+  ],
+  "sameAs": [
+    "https://apps.apple.com/us/app/juno-chronic-illness-support/id6749455368",
+    "https://play.google.com/store/apps/details?id=com.junochat.app",
+    "https://www.ycombinator.com/companies/juno-chat",
+    "https://www.producthunt.com/products/juno-13"
+  ],
+  "subjectOf": [
+    {
+      "@type": "CreativeWork",
+      "name": "Juno Open Health Tools",
+      "url": "https://github.com/MarshallBear1/juno-open-health-tools",
+      "identifier": "https://doi.org/10.5281/zenodo.21730086"
+    },
+    {
+      "@type": "Article",
+      "name": "How These Three AI Healthcare Companies Are Restoring The Human Touch",
+      "url": "https://www.forbes.com/sites/alisoncoleman/2026/03/04/how-these-three-ai-healthcare-companies-are-restoring-the-human-touch/"
+    }
+  ],
+  "dateModified": "2026-08-02"
+}

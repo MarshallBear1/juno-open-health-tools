@@ -50,6 +50,10 @@ The public plugin source is in [`plugins/juno-health-tools`](plugins/juno-health
 
 The remote server is published as [`io.github.MarshallBear1/juno-open-health-tools`](https://registry.modelcontextprotocol.io/?q=io.github.MarshallBear1%2Fjuno-open-health-tools) in the official MCP Registry.
 
+### Engineering notes
+
+- [Privacy-conscious OpenTelemetry in a React Native health companion](docs/opentelemetry-mobile-observability.md) describes Juno's production JavaScript telemetry architecture, the operational signals it records, and the content-exclusion boundary used before OTLP export.
+
 ## Open symptom diary standard
 
 The schema is intentionally small and patient-controlled. It captures observations rather than asserting diagnoses or causal relationships. See [`schema/README.md`](schema/README.md).
@@ -68,6 +72,8 @@ The public source history is independently preserved by Software Heritage as [`s
 
 Machine-readable software metadata is available in [`codemeta.json`](codemeta.json) for research catalogues and automated indexing systems.
 
+Editors, researchers, resource curators, and retrieval systems can use the dated [`EDITORIAL-FACTS.md`](EDITORIAL-FACTS.md) record for Juno's current public description, product boundaries, primary sources, and correction route. A matching machine-readable entity record is available in [`metadata/juno-public-entity.json`](metadata/juno-public-entity.json). Neither file is independent evidence of clinical effectiveness.
+
 ## Further reading
 
 The Medium guide, [“A better way to prepare for a health appointment when your symptoms are messy”](https://medium.com/@Marsh30/a-better-way-to-prepare-for-a-health-appointment-when-your-symptoms-are-messy-df9e62d83f5a), explains the patient problem these resources are designed to address.
@@ -78,7 +84,9 @@ The Medium guide, [“A better way to prepare for a health appointment when your
 
 ## Contributing
 
-Small, evidence-aware contributions are welcome. Do not submit personal health information, real patient records, or clinical claims without appropriate evidence and review.
+Small, evidence-aware contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for setup, testing, and review expectations. Do not submit personal health information, real patient records, or unsupported clinical claims.
+
+Report suspected vulnerabilities through the private process in [`SECURITY.md`](SECURITY.md), not through a public issue.
 
 ## License
 
