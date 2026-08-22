@@ -132,7 +132,7 @@ All five tools currently expose `readOnlyHint: true`, `destructiveHint: false`, 
 
 ## Carousel assets and paired prompts
 
-The prepared PNGs are cropped to the Juno Health Tools response only and are at least 1,000 pixels wide:
+The PNGs are 1,200-pixel-wide response-only captures generated from fresh calls to the public MCP endpoint. The capture script records each sanitised synthetic input and the endpoint's complete MCP result in `assets/anthropic-connectors-directory/responses.json`; the cards render only those returned `structuredContent` values.
 
 | Asset | Paired prompt |
 |---|---|
@@ -142,7 +142,13 @@ The prepared PNGs are cropped to the Juno Health Tools response only and are at 
 | `assets/anthropic-connectors-directory/04-reflect-on-flare.png` | `Structure this synthetic flare without assuming a cause: before, a busy weekend; during, more fatigue and light sensitivity; after, gradual improvement over three quiet days.` |
 | `assets/anthropic-connectors-directory/05-render-appointment-brief.png` | `Render the appointment brief as a readable card with priorities, timeline, impacts, and unanswered questions.` |
 
-Preview every uploaded crop in the portal. If Anthropic requires screenshots captured inside Claude rather than response-only product crops, replace these assets with fresh in-Claude screenshots while keeping the paired prompts unchanged.
+Regenerate the response evidence before portal upload:
+
+```bash
+node scripts/capture_anthropic_connector_assets.mjs https://juno-health-tools.vercel.app/api/mcp
+```
+
+Preview every uploaded crop in the portal. If Anthropic requires screenshots captured inside Claude rather than response-only connector-response crops, replace these assets with fresh in-Claude screenshots while keeping the paired prompts unchanged.
 
 ## Verification
 
