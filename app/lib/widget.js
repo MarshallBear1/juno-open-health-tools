@@ -1,4 +1,4 @@
-export const WIDGET_URI = "ui://juno-health-tools/appointment-brief-v2.html";
+export const WIDGET_URI = "ui://juno-health-tools/appointment-brief-v3.html";
 
 export const widgetHtml = String.raw`<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
