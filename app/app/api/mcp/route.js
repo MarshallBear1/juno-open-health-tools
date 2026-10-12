@@ -2,6 +2,7 @@ import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { buildHealthTimeline, findSymptomWords, prepareAppointmentBrief, reflectOnFlare } from "../../../lib/health-tools.js";
 import { WIDGET_URI, widgetHtml } from "../../../lib/widget.js";
+import { toolResult } from "../../../lib/tool-result.js";
 
 const textValue = z.string().trim().max(2000);
 const shortText = z.string().trim().max(1000);
@@ -53,77 +54,81 @@ const flareSchema = z.object({
 });
 
 const handler = createMcpHandler((server) => {
-  server.registerResource("appointment-brief-card", WIDGET_URI, {}, async () => ({
+  server.registerResource("appointment-brief-card", WIDGET_URI, { mimeType: "text/html;profile=mcp-app" }, async () => ({
     contents: [{
       uri: WIDGET_URI,
       mimeType: "text/html;profile=mcp-app",
       text: widgetHtml,
-      _meta: { ui: { prefersBorder: true, domain: "https://juno-health-tools.vercel.app", csp: { connectDomains: [], resourceDomains: [] } } }
+      _meta: {
+        ui: { prefersBorder: true, csp: { connectDomains: [], resourceDomains: [] } },
+        // Sandbox domain formats are host-specific; keep this origin scoped to ChatGPT.
+        "openai/widgetDomain": "https://juno-health-tools.vercel.app"
+      }
     }]
   }));
 
   server.registerTool("find_symptom_words", {
     title: "Find symptom words",
-    description: "After explicit consent, organise only the user's non-identifying description into neutral sensation, timing, pattern, and impact vocabulary. Do not accept PHI or infer a diagnosis or cause.",
+    description: "Organises a non-identifying, user-authored sensation description into neutral sensation, timing, pattern and impact vocabulary. Requires explicit consent for transient processing. PHI and diagnostic inference are outside its scope.",
     inputSchema: z.object({ consentConfirmed, description: textValue, bodyArea: textValue.optional(), timing: textValue.optional(), impact: textValue.optional() }),
     outputSchema: symptomWordsSchema,
-    annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    annotations: { title: "Find symptom words", readOnlyHint: true, destructiveHint: false, openWorldHint: false },
     _meta: { "openai/toolInvocation/invoking": "Finding clearer words…", "openai/toolInvocation/invoked": "Word prompts ready." }
   }, async (input) => {
     const { consentConfirmed: _consent, ...values } = input;
     const result = findSymptomWords(values);
-    return { structuredContent: result, content: [{ type: "text", text: `Here are neutral word prompts and a starter sentence. ${result.disclaimer}` }] };
+    return toolResult(result, "Here are neutral word prompts and a starter sentence.");
   });
 
   server.registerTool("build_health_timeline", {
     title: "Build health timeline",
-    description: "After explicit consent, sort only non-identifying, user-authored observations into a factual chronology while preserving uncertainty. Do not accept PHI or invent dates or diagnoses.",
+    description: "Sorts non-identifying, user-authored observations into a factual chronology while preserving supplied dates and uncertainty. Requires explicit consent for transient processing. PHI and diagnosis are outside its scope.",
     inputSchema: z.object({ consentConfirmed, observations: z.array(z.object({ date: z.string().max(80).optional(), observation: textValue, category: z.string().max(120).optional(), impact: z.string().max(1000).optional(), uncertainty: z.string().max(500).optional() })).min(1).max(50) }),
     outputSchema: timelineOutputSchema,
-    annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    annotations: { title: "Build health timeline", readOnlyHint: true, destructiveHint: false, openWorldHint: false },
     _meta: { "openai/toolInvocation/invoking": "Organising the timeline…", "openai/toolInvocation/invoked": "Timeline organised." }
   }, async (input) => {
     const { consentConfirmed: _consent, ...values } = input;
     const result = buildHealthTimeline(values);
-    return { structuredContent: result, content: [{ type: "text", text: `Organised ${result.timeline.length} supplied observations. ${result.disclaimer}` }] };
+    return toolResult(result, `Organised ${result.timeline.length} supplied observations.`);
   });
 
   server.registerTool("prepare_appointment_brief", {
     title: "Prepare appointment brief",
-    description: "After explicit consent, turn minimal non-identifying goals, changes, impact, user-stated medicines, and questions into a concise appointment brief. Do not accept PHI or provide medical advice.",
+    description: "Structures non-identifying goals, changes, impacts, user-stated medicines and questions into an appointment brief. Requires explicit consent for transient processing. PHI, diagnosis and treatment advice are outside its scope.",
     inputSchema: z.object({ consentConfirmed, mainGoal: textValue, changes: shortList, impacts: shortList, medicines: shortList, questions: shortList, detailsToBring: shortList }),
     outputSchema: briefSchema,
-    annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    annotations: { title: "Prepare appointment brief", readOnlyHint: true, destructiveHint: false, openWorldHint: false },
     _meta: { "openai/toolInvocation/invoking": "Preparing the brief…", "openai/toolInvocation/invoked": "Brief prepared." }
   }, async (input) => {
     const { consentConfirmed: _consent, ...values } = input;
     const result = prepareAppointmentBrief(values);
-    return { structuredContent: result, content: [{ type: "text", text: `Prepared a concise brief with ${result.questions.length} prioritised questions. ${result.disclaimer}` }] };
+    return toolResult(result, `Prepared a concise brief with ${result.questions.length} prioritised questions.`);
   });
 
   server.registerTool("reflect_on_flare", {
     title: "Reflect on a flare",
-    description: "After explicit consent, structure only non-identifying, user-authored before, during, and after observations; turn suspected patterns into questions, not causal claims. Do not accept PHI.",
+    description: "Structures non-identifying before, during and recovery observations, presenting suspected patterns as questions rather than causes. Requires explicit consent for transient processing. PHI is outside its scope.",
     inputSchema: z.object({ consentConfirmed, baselineBefore: shortList, during: shortList, recoveryAfter: shortList, possiblePatterns: shortList }),
     outputSchema: flareSchema,
-    annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    annotations: { title: "Reflect on a flare", readOnlyHint: true, destructiveHint: false, openWorldHint: false },
     _meta: { "openai/toolInvocation/invoking": "Structuring the reflection…", "openai/toolInvocation/invoked": "Reflection structured." }
   }, async (input) => {
     const { consentConfirmed: _consent, ...values } = input;
     const result = reflectOnFlare(values);
-    return { structuredContent: result, content: [{ type: "text", text: `Structured the flare as before, during, and after observations. ${result.disclaimer}` }] };
+    return toolResult(result, "Structured the flare as before, during, and after observations.");
   });
 
   server.registerTool("render_appointment_brief", {
     title: "Render appointment brief",
-    description: "After the user's existing consent, render the non-identifying output of prepare_appointment_brief as an accessible card. Call prepare_appointment_brief first; do not add PHI.",
+    description: "Renders a supplied, complete, non-identifying appointment brief as an accessible card. Requires explicit consent for transient processing. Preserves the supplied fields and disclaimer; PHI is outside its scope.",
     inputSchema: briefSchema.extend({ consentConfirmed }),
     outputSchema: briefSchema,
-    annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: false },
+    annotations: { title: "Render appointment brief", readOnlyHint: true, destructiveHint: false, openWorldHint: false },
     _meta: { ui: { resourceUri: WIDGET_URI }, "openai/outputTemplate": WIDGET_URI, "openai/toolInvocation/invoking": "Rendering the brief…", "openai/toolInvocation/invoked": "Brief ready." }
   }, async (input) => {
     const { consentConfirmed: _consent, ...brief } = input;
-    return { structuredContent: brief, content: [{ type: "text", text: `Showing the appointment brief. ${brief.disclaimer}` }] };
+    return toolResult(brief, "Showing the appointment brief.");
   });
 }, {
   serverInfo: { name: "Juno Health Tools", version: "1.1.0" },

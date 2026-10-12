@@ -38,7 +38,9 @@ for (const tool of tools) {
     typeof tool.description === "string" && tool.description.trim(),
     `${tool.name} is missing description`,
   );
-  assert.deepEqual(tool.annotations, {
+  assert.equal(tool.annotations.title, tool.title, `${tool.name} is missing its directory title annotation`);
+  const { title: _annotationTitle, ...hints } = tool.annotations;
+  assert.deepEqual(hints, {
     readOnlyHint: true,
     destructiveHint: false,
     openWorldHint: false,
@@ -64,6 +66,29 @@ const allowed = await rpc(4, "tools/call", {
 });
 assert.notEqual(allowed.result.isError, true);
 assert.ok(allowed.result.structuredContent.prompts.sensation.length);
+assert.deepEqual(JSON.parse(allowed.result.content[1].text), allowed.result.structuredContent);
+
+const brief = await rpc(5, "tools/call", {
+  name: "prepare_appointment_brief",
+  arguments: { consentConfirmed: true, mainGoal: "Explain synthetic notes", questions: ["What should I track?"] },
+});
+const timeline = await rpc(6, "tools/call", {
+  name: "build_health_timeline",
+  arguments: { consentConfirmed: true, observations: [{ date: "2026-07-12", observation: "Synthetic low energy" }] },
+});
+const flare = await rpc(7, "tools/call", {
+  name: "reflect_on_flare",
+  arguments: { consentConfirmed: true, possiblePatterns: ["a busy weekend"] },
+});
+const rendered = await rpc(8, "tools/call", {
+  name: "render_appointment_brief",
+  arguments: { consentConfirmed: true, ...brief.result.structuredContent },
+});
+for (const response of [brief, timeline, flare, rendered]) {
+  assert.notEqual(response.result.isError, true);
+  assert.deepEqual(JSON.parse(response.result.content[1].text), response.result.structuredContent);
+}
+assert.deepEqual(rendered.result.structuredContent, brief.result.structuredContent);
 
 console.log(JSON.stringify({
   endpoint,
@@ -73,4 +98,6 @@ console.log(JSON.stringify({
   titlesAndDescriptions: "verified",
   outputSchemas: "verified",
   annotations: "verified",
+  completeTextResults: "verified for all five tools",
+  prepareToRender: "all fields preserved",
 }, null, 2));
