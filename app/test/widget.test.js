@@ -5,16 +5,17 @@ import { widgetHtml } from "../lib/widget.js";
 import { prepareAppointmentBrief } from "../lib/health-tools.js";
 import { toolResult } from "../lib/tool-result.js";
 
-function loadWidget() {
+function loadWidget({ initialToolOutput, ResizeObserver } = {}) {
   const elements = Object.fromEntries(["grid", "goal", "note", "copy"].map(id => [id, { textContent: "", innerHTML: "" }]));
   const listeners = {}, messages = [], copied = [];
   const parent = { postMessage: message => messages.push(message) };
-  const window = { parent, addEventListener: (name, fn) => { listeners[name] = fn; } };
+  const window = { parent, openai: { toolOutput: initialToolOutput }, addEventListener: (name, fn) => { listeners[name] = fn; } };
   const document = { getElementById: id => elements[id], body: { getBoundingClientRect: () => ({ height: 400 }) } };
   const source = widgetHtml.match(/<script>([\s\S]*)<\/script>/i)[1];
-  vm.runInNewContext(source, { window, document, navigator: { clipboard: { writeText: async text => copied.push(text) } } });
+  vm.runInNewContext(source, { window, document, ResizeObserver, navigator: { clipboard: { writeText: async text => copied.push(text) } } });
   const receive = (data, source = parent) => listeners.message({ source, data });
-  return { elements, messages, copied, receive };
+  const updateGlobals = globals => listeners["openai:set_globals"]({ detail: { globals } });
+  return { elements, messages, copied, receive, updateGlobals, body: document.body };
 }
 
 const brief = prepareAppointmentBrief({
@@ -57,4 +58,40 @@ test("widget ignores non-parent messages and supports a text-only result fallbac
   assert.equal(widget.elements.goal.textContent, "Appointment brief");
   widget.receive(result);
   assert.equal(widget.elements.goal.textContent, brief.mainGoal);
+});
+
+test("ChatGPT initial output and later globals updates replace the rendered and copied brief", async () => {
+  const widget = loadWidget({ initialToolOutput: brief });
+  assert.equal(widget.elements.goal.textContent, brief.mainGoal);
+  assert.ok(widget.elements.grid.innerHTML.includes(brief.questions[2]));
+  const updated = { ...brief, mainGoal: "Updated appointment goal", questions: ["A new question?"] };
+  widget.updateGlobals({ toolOutput: updated });
+  assert.equal(widget.elements.goal.textContent, updated.mainGoal);
+  assert.ok(widget.elements.grid.innerHTML.includes(updated.questions[0]));
+  assert.ok(!widget.elements.grid.innerHTML.includes(brief.questions[0]));
+  await widget.elements.copy.onclick();
+  assert.ok(widget.copied[0].includes(updated.mainGoal));
+  assert.ok(!widget.copied[0].includes(brief.mainGoal));
+});
+
+test("host teardown disconnects the resize observer and stops size notifications", () => {
+  let resize, observed, disconnected = false;
+  class ResizeObserver {
+    constructor(callback) { resize = callback; }
+    observe(element) { observed = element; }
+    disconnect() { disconnected = true; }
+  }
+  const widget = loadWidget({ ResizeObserver });
+  widget.receive({ jsonrpc: "2.0", id: widget.messages[0].id, result: {} });
+  assert.equal(observed, widget.body);
+  const beforeResize = widget.messages.length;
+  resize();
+  assert.equal(widget.messages.length, beforeResize + 1);
+  assert.equal(widget.messages.at(-1).method, "ui/notifications/size-changed");
+  widget.receive({ jsonrpc: "2.0", id: "teardown", method: "ui/resource-teardown" });
+  assert.equal(disconnected, true);
+  assert.equal(widget.messages.at(-1).id, "teardown");
+  const afterTeardown = widget.messages.length;
+  resize();
+  assert.equal(widget.messages.length, afterTeardown);
 });
