@@ -43,7 +43,7 @@ The tools do not diagnose, recommend treatment, provide clinical decision suppor
 
 **Tags:** appointment preparation, symptom notes, health timeline, chronic illness, privacy, consent, non-diagnostic
 
-**Client configuration**
+**Client configuration** (generic URL form, as in `plugins/juno-health-tools/.mcp.json`; Cline needs the explicit transport shown in its section below)
 
 ```json
 {
@@ -100,7 +100,22 @@ The tools do not diagnose, recommend treatment, provide clinical decision suppor
 - **Status:** no submission found (issue search for "juno" returned nothing).
 - **Route:** a GitHub issue using the **MCP Server Submission** template at https://github.com/cline/mcp-marketplace/issues/new?template=mcp-server-submission.yml — **Verified** from the template file. Do not open it until the steps below are done.
 - **Fields:** GitHub Repository URL (required): `https://github.com/MarshallBear1/juno-open-health-tools`. Logo Image (required, 400×400 PNG): `submissions/assets/mcp-directories/juno-health-tools-icon-400.png`. Two required confirmations: that Cline can set up the server using only `README.md` and/or `llms-install.md`, and that the server is stable. Additional Information (optional): the one-line description, the website URL, and the note that it is a remote Streamable HTTP server needing no credentials.
-- **Before submitting:** Cline installs from the repository's README. The README's MCP section documents the remote URL, but test it in Cline first. If Cline needs more guidance, add an `llms-install.md` at the repository root containing the client configuration above and the consent and no-PHI rules.
+- **Before submitting:** Cline installs from the repository's README. The README's MCP section documents the remote URL, but test it in Cline first. Cline defaults a URL-only entry to the legacy SSE transport, so its configuration must name Streamable HTTP explicitly ([Cline MCP docs](https://github.com/cline/cline/blob/main/docs/mcp/mcp-overview.mdx)):
+
+  ```json
+  {
+    "mcpServers": {
+      "juno-health-tools": {
+        "type": "streamableHttp",
+        "url": "https://juno-health-tools.vercel.app/api/mcp",
+        "disabled": false,
+        "autoApprove": []
+      }
+    }
+  }
+  ```
+
+  If Cline needs more guidance, add an `llms-install.md` at the repository root containing this Cline configuration and the consent and no-PHI rules.
 - **Review criteria (README):** community adoption, developer credibility, project maturity, and security.
 
 ## Already listed elsewhere

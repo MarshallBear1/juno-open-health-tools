@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 
 const endpoint = process.argv[2];
-if (!endpoint) throw new Error("Usage: node scripts/check_mcp_endpoint.mjs <https://host/mcp>");
+const expectedVersion = process.argv[3];
+if (!endpoint) throw new Error("Usage: node scripts/check_mcp_endpoint.mjs <https://host/mcp> [expected-server-version]");
 
 async function rpc(id, method, params = {}) {
   const response = await fetch(endpoint, {
@@ -25,6 +26,9 @@ const initialized = await rpc(1, "initialize", {
   clientInfo: { name: "juno-submission-audit", version: "1.0.0" },
 });
 assert.equal(initialized.result.serverInfo.name, "Juno Health Tools");
+if (expectedVersion) {
+  assert.equal(initialized.result.serverInfo.version, expectedVersion, "deployed server version does not match server.json");
+}
 assert.match(initialized.result.instructions, /explicit agreement/i);
 assert.match(initialized.result.instructions, /protected health information \(PHI\)/i);
 

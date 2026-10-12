@@ -157,10 +157,10 @@ Run from the repository root:
 
 ```bash
 cd app && npm test
-cd .. && node scripts/check_mcp_endpoint.mjs https://juno-health-tools.vercel.app/api/mcp
+cd .. && node scripts/check_mcp_endpoint.mjs https://juno-health-tools.vercel.app/api/mcp 1.2.0
 ```
 
-The endpoint verifier checks server identity, consent and PHI instructions, five-tool inventory, titles, tool-name length, descriptions, read-only annotations, output schemas, the required consent field, refusal without consent, and a successful synthetic tool call.
+The endpoint verifier checks server identity, the deployed server version when one is passed (it must match `server.json`), consent and PHI instructions, five-tool inventory, titles, tool-name length, descriptions, read-only annotations, output schemas, the required consent field, refusal without consent, and a successful synthetic tool call.
 
 ## Final authorised handoff
 
