@@ -126,7 +126,7 @@ const handler = createMcpHandler((server) => {
     return { structuredContent: brief, content: [{ type: "text", text: `Showing the appointment brief. ${brief.disclaimer}` }] };
   });
 }, {
-  serverInfo: { name: "Juno Health Tools", version: "1.1.0" },
+  serverInfo: { name: "Juno Health Tools", version: "1.2.0" },
   instructions: "Before any tool call, disclose that Juno Health Tools transiently processes the submitted text without intentionally storing it, ask whether the user wants to continue, and set consentConfirmed true only after explicit agreement. Do not request or accept protected health information (PHI), names, contact details, record or insurance numbers, credentials, provider documents, or other identifying data. Use only minimal user-authored observations. Do not diagnose, infer causes, recommend treatment, or replace urgent care. Prefer data tools first and call render_appointment_brief once, after prepare_appointment_brief."
 });
 

@@ -1,6 +1,6 @@
 # Anthropic Connectors Directory submission — Juno Health Tools
 
-Prepared 2 August 2026. This is a reviewer-ready source of truth for an authorised Juno representative. It is not evidence that Anthropic has accepted or published the connector.
+Prepared 2 August 2026; listing URLs updated 12 October 2026 to the Juno Open Health Tools pages on junocompanion.com (the server URL is unchanged). This is a reviewer-ready source of truth for an authorised Juno representative. It is not evidence that Anthropic has accepted or published the connector.
 
 ## Submission gate
 
@@ -26,10 +26,11 @@ Official guidance:
 | Account required | No |
 | Public MCP Registry name | `io.github.MarshallBear1/juno-open-health-tools` |
 | Public source | https://github.com/MarshallBear1/juno-open-health-tools |
+| Website | https://junocompanion.com/health-tools |
 | Documentation | https://github.com/MarshallBear1/juno-open-health-tools/blob/main/app/README.md |
-| Privacy policy | https://juno-health-tools.vercel.app/privacy |
-| Terms | https://juno-health-tools.vercel.app/terms |
-| Support | https://juno-health-tools.vercel.app/support |
+| Privacy policy | https://junocompanion.com/health-tools/privacy |
+| Terms | https://junocompanion.com/health-tools/terms |
+| Support | https://junocompanion.com/health-tools/support |
 
 ## Listing
 
@@ -59,7 +60,7 @@ Select the closest available portal categories to `Health & Wellness`, `Producti
 
 - Company: SharedGenes, Inc., operating as Juno
 - Product name: Juno
-- Website: https://junocompanion.com/
+- Website: https://junocompanion.com/health-tools (company home page: https://junocompanion.com/)
 - Support email: `team@juno-chat.com`
 
 **Icon**
@@ -163,8 +164,8 @@ The endpoint verifier checks server identity, consent and PHI instructions, five
 
 ## Final authorised handoff
 
-1. Merge and deploy this branch so the privacy notice is platform-neutral.
-2. Re-run the endpoint verifier against production and open all documentation, privacy, terms, support, and icon URLs.
+1. Confirm the junocompanion.com Juno Open Health Tools pages are deployed: https://junocompanion.com/health-tools, `/health-tools/privacy`, `/health-tools/terms`, and `/health-tools/support` must each return HTTP 200. Also deploy the current `app/` from `main` to Vercel so the endpoint reports server version 1.2.0 and its own `/privacy` page carries the platform-neutral wording.
+2. Re-run the endpoint verifier against production and open all website, documentation, privacy, terms, support, and icon URLs.
 3. Sign in to the owning Claude Team or Enterprise organisation as an authorised directory manager.
 4. Complete the remote connector portal with the exact factual answers above.
 5. Review the permanent slug and legal acknowledgements carefully, then submit.

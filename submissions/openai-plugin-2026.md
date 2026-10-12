@@ -1,6 +1,6 @@
 # OpenAI plugin submission — Juno Health Tools
 
-Prepared against the current public plugin submission and review requirements on 1 August 2026.
+Prepared against the current public plugin submission and review requirements on 1 August 2026. Listing URLs updated on 12 October 2026: website, support, privacy, and terms now point to the Juno Open Health Tools pages on junocompanion.com. The MCP server URL is unchanged.
 
 ## Submission type
 
@@ -17,10 +17,10 @@ Prepared against the current public plugin submission and review requirements on
 - **Short description:** Prepare clearer health notes
 - **Developer identity:** Verified business identity shown by the Platform: Juno Chat.
 - **Long description:** Juno Health Tools helps people organise non-identifying, user-authored symptom descriptions, timelines, flare reflections, and appointment questions. It processes submitted text transiently after explicit consent, does not intentionally retain tool inputs or outputs, and does not diagnose or recommend treatment. Four bundled skills guide repeatable workflows, while five read-only MCP tools produce portable structured results and an accessible appointment-brief card.
-- **Website:** https://juno-health-tools.vercel.app/
-- **Support:** https://juno-health-tools.vercel.app/support
-- **Privacy:** https://juno-health-tools.vercel.app/privacy
-- **Terms:** https://juno-health-tools.vercel.app/terms
+- **Website:** https://junocompanion.com/health-tools
+- **Support:** https://junocompanion.com/health-tools/support
+- **Privacy:** https://junocompanion.com/health-tools/privacy
+- **Terms:** https://junocompanion.com/health-tools/terms
 - **Repository:** https://github.com/MarshallBear1/juno-open-health-tools
 - **Permanent archive:** https://doi.org/10.5281/zenodo.21730086
 - **Logo:** `plugins/juno-health-tools/assets/juno-plugin-icon-512.png`
@@ -127,8 +127,10 @@ Initial public submission of Juno Health Tools. The plugin combines four privacy
 
 - Confirm the submitter has **Apps Management: Write** in the selected OpenAI organisation.
 - Confirm the selected verified publishing identity remains **Business — Juno Chat** and the public author remains **Juno Chat**.
-- Select **Universal** MCP URL and **Scan Tools** after the v1.1.0 server is deployed.
+- Rebuild the upload ZIP with `./scripts/package_plugin.sh` so the bundle carries the junocompanion.com listing URLs from `plugin.json`.
+- Select **Universal** MCP URL and **Scan Tools** after the v1.2.0 server is deployed.
 - If the portal generates a new domain token, replace the contents of `app/public/.well-known/openai-apps-challenge`, deploy, and re-run verification. Never reuse a stale token merely because the path already exists.
 - Check that the tool scan discovers all five output schemas and all three annotations for every tool.
+- Open https://junocompanion.com/health-tools and its `/privacy`, `/terms`, and `/support` pages and confirm each returns HTTP 200 before entering them in the portal. They must match `plugins/juno-health-tools/.codex-plugin/plugin.json`.
 - Review the privacy policy, terms, support page, countries, and release notes in the rendered draft.
 - Complete legal and policy attestations only after the account owner confirms the exact checkboxes presented in the portal.
