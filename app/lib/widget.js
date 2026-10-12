@@ -1,6 +1,6 @@
-export const WIDGET_URI = "ui://juno-health-tools/appointment-brief-v1.html";
+export const WIDGET_URI = "ui://juno-health-tools/appointment-brief-v2.html";
 
-export const widgetHtml = `<!doctype html>
+export const widgetHtml = String.raw`<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 :root{color-scheme:light dark;--ink:#14201d;--muted:#5e6c67;--paper:#fff;--line:#dce7e1;--mint:#dff6ed;--green:#16705a;--warm:#fff5e8}*{box-sizing:border-box}body{margin:0;padding:14px;background:transparent;font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--ink)}.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 14px 38px rgba(23,50,42,.08);overflow:hidden}.head{padding:22px;background:linear-gradient(135deg,var(--mint),#f6fbf9)}.eyebrow{color:var(--green);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800}.head h1{font-size:24px;line-height:1.1;margin:8px 0}.head p{margin:0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0}.section{padding:18px 20px;border-top:1px solid var(--line)}.section:nth-child(even){border-left:1px solid var(--line)}h2{font-size:13px;margin:0 0 8px;color:var(--green);letter-spacing:.02em}ul{margin:0;padding-left:18px}li+li{margin-top:6px}.empty{color:var(--muted);font-style:italic}.footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:var(--warm);font-size:12px;color:var(--muted)}button{border:1px solid var(--green);color:var(--green);background:transparent;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}@media(max-width:520px){.section:nth-child(even){border-left:0}}@media(prefers-color-scheme:dark){:root{--ink:#e8f2ee;--muted:#adbbb5;--paper:#17211e;--line:#35443f;--mint:#193d33;--green:#75d5b7;--warm:#2b251c}}
@@ -12,6 +12,29 @@ function section(title,items){const values=(items||[]).filter(Boolean);return '<
 function render(data){latest=data||{};goal.textContent=latest.mainGoal||'Appointment brief';grid.innerHTML=section('What changed',latest.changes)+section('Functional impact',latest.impacts)+section('Medicines or changes',latest.medicines)+section('Top questions',latest.questions)+section('Details to bring',latest.detailsToBring);note.textContent=latest.disclaimer||'Organises information; not medical advice.'}
 function textBrief(){return [latest.mainGoal&&'MAIN GOAL\n'+latest.mainGoal,...[['WHAT CHANGED',latest.changes],['FUNCTIONAL IMPACT',latest.impacts],['MEDICINES OR CHANGES',latest.medicines],['TOP QUESTIONS',latest.questions],['DETAILS TO BRING',latest.detailsToBring]].map(([h,a])=>a?.length?h+'\n- '+a.join('\n- '):''),latest.disclaimer].filter(Boolean).join('\n\n')}
 document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(textBrief());document.getElementById('copy').textContent='Copied'}catch{document.getElementById('copy').textContent='Select and copy'}};
-if(window.openai?.toolOutput)render(window.openai.toolOutput);window.addEventListener('message',e=>{if(e.source!==window.parent)return;const m=e.data;if(m?.jsonrpc==='2.0'&&m.method==='ui/notifications/tool-result')render(m.params?.structuredContent||{})},{passive:true});
+let connected=false,resizeObserver;
+const initId='juno-brief-init';
+function send(message){window.parent.postMessage({jsonrpc:'2.0',...message},'*')}
+function notifySize(){if(connected)send({method:'ui/notifications/size-changed',params:{height:Math.ceil(document.body.getBoundingClientRect().height)}})}
+function resultData(result){
+  if(result?.structuredContent)return result.structuredContent;
+  for(const block of result?.content||[]){if(block.type==='text'){try{return JSON.parse(block.text)}catch{}}}
+  return {};
+}
+window.addEventListener('message',e=>{
+  if(e.source!==window.parent)return;
+  const m=e.data;if(m?.jsonrpc!=='2.0')return;
+  if(m.id===initId&&m.result&&!connected){
+    connected=true;send({method:'ui/notifications/initialized',params:{}});
+    if(typeof ResizeObserver!=='undefined'){resizeObserver=new ResizeObserver(notifySize);resizeObserver.observe(document.body)}
+    notifySize();
+  }else if(m.id===initId&&m.error){note.textContent='Unable to connect this card. The full brief is available in the tool response.'}
+  else if(m.method==='ui/notifications/tool-result'){render(resultData(m.params));notifySize()}
+  else if(m.method==='ping'&&m.id!==undefined){send({id:m.id,result:{}})}
+  else if(m.method==='ui/resource-teardown'&&m.id!==undefined){resizeObserver?.disconnect();connected=false;send({id:m.id,result:{}})}
+},{passive:true});
+window.addEventListener('openai:set_globals',e=>{if(e.detail?.globals?.toolOutput)render(e.detail.globals.toolOutput)},{passive:true});
+render(window.openai?.toolOutput||{});
+if(window.parent!==window)send({id:initId,method:'ui/initialize',params:{protocolVersion:'2026-01-26',appInfo:{name:'Juno Appointment Brief',version:'1.1.1'},appCapabilities:{availableDisplayModes:['inline']}}});
 </script></body></html>`;
 
