@@ -3,6 +3,7 @@ import { z } from "zod";
 import { buildHealthTimeline, findSymptomWords, prepareAppointmentBrief, reflectOnFlare } from "../../../lib/health-tools.js";
 import { WIDGET_URI, widgetHtml } from "../../../lib/widget.js";
 import { toolResult } from "../../../lib/tool-result.js";
+import { widgetMeta } from "../../../lib/widget-meta.js";
 
 const textValue = z.string().trim().max(2000);
 const shortText = z.string().trim().max(1000);
@@ -54,16 +55,12 @@ const flareSchema = z.object({
 });
 
 const handler = createMcpHandler((server) => {
-  server.registerResource("appointment-brief-card", WIDGET_URI, { mimeType: "text/html;profile=mcp-app" }, async () => ({
+  server.registerResource("appointment-brief-card", WIDGET_URI, { mimeType: "text/html;profile=mcp-app" }, async (_uri, context) => ({
     contents: [{
       uri: WIDGET_URI,
       mimeType: "text/html;profile=mcp-app",
       text: widgetHtml,
-      _meta: {
-        ui: { prefersBorder: true, csp: { connectDomains: [], resourceDomains: [] } },
-        // Sandbox domain formats are host-specific; keep this origin scoped to ChatGPT.
-        "openai/widgetDomain": "https://juno-health-tools.vercel.app"
-      }
+      _meta: widgetMeta(context.http?.req)
     }]
   }));
 
