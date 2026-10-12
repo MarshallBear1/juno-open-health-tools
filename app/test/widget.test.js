@@ -11,7 +11,7 @@ function loadWidget() {
   const parent = { postMessage: message => messages.push(message) };
   const window = { parent, addEventListener: (name, fn) => { listeners[name] = fn; } };
   const document = { getElementById: id => elements[id], body: { getBoundingClientRect: () => ({ height: 400 }) } };
-  const source = widgetHtml.match(/<script>([\s\S]*)<\/script>/)[1];
+  const source = widgetHtml.match(/<script>([\s\S]*)<\/script>/i)[1];
   vm.runInNewContext(source, { window, document, navigator: { clipboard: { writeText: async text => copied.push(text) } } });
   const receive = (data, source = parent) => listeners.message({ source, data });
   return { elements, messages, copied, receive };
