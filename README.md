@@ -37,7 +37,7 @@ Use the source in [`extension`](extension), or download the store-ready ZIP from
 
 ### MCP app
 
-Try the [public Juno Health Tools app](https://juno-health-tools.vercel.app), or read the endpoint documentation in [`app/README.md`](app/README.md). Local development:
+Read the [Juno Open Health Tools overview](https://junocompanion.com/health-tools) for what the tools do, how to connect, and their privacy, terms, and support pages. Try the [live Juno Health Tools app](https://juno-health-tools.vercel.app), which also hosts the MCP endpoint at `https://juno-health-tools.vercel.app/api/mcp`, or read the endpoint documentation in [`app/README.md`](app/README.md). Local development:
 
 ```bash
 cd app

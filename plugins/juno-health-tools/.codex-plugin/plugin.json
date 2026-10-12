@@ -7,7 +7,7 @@
     "email": "team@juno-chat.com",
     "url": "https://junocompanion.com/"
   },
-  "homepage": "https://juno-health-tools.vercel.app/",
+  "homepage": "https://junocompanion.com/health-tools",
   "repository": "https://github.com/MarshallBear1/juno-open-health-tools",
   "license": "MIT",
   "keywords": ["appointment preparation", "health communication", "symptom notes", "timeline", "accessibility"],
@@ -19,10 +19,10 @@
     "developerName": "Juno",
     "category": "Healthcare",
     "capabilities": ["Read"],
-    "websiteURL": "https://juno-health-tools.vercel.app/",
-    "privacyPolicyURL": "https://juno-health-tools.vercel.app/privacy",
-    "termsOfServiceURL": "https://juno-health-tools.vercel.app/terms",
-    "supportURL": "https://juno-health-tools.vercel.app/support",
+    "websiteURL": "https://junocompanion.com/health-tools",
+    "privacyPolicyURL": "https://junocompanion.com/health-tools/privacy",
+    "termsOfServiceURL": "https://junocompanion.com/health-tools/terms",
+    "supportURL": "https://junocompanion.com/health-tools/support",
     "defaultPrompt": [
       "Help me turn messy health notes into a concise appointment brief.",
       "Help me find neutral words to describe this symptom clearly.",
